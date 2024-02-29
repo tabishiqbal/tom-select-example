@@ -1,0 +1,35 @@
+
+<%= form_with(model: person) do |form| %>
+  <% if person.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+        <% person.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="space-y-6">
+    <div>
+      <%= form.label :name, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :name, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+    </div>
+
+    <div>
+      <%= form.label :email, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.text_field :email, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+    </div>
+
+    <div>
+      <%= form.label :company_id, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.collection_select :company_id, Company.all, :id, :name, {}, {multiple: true, class: "mt-1", data: {controller: "select"}} %>
+    </div>
+  </div>
+
+  <div class="mt-10">
+    <%= form.submit "Save", class: "rounded-md bg-gray-900 text-white px-4 py-1.5 inline-flex items-center text-sm" %>
+  </div>
+<% end %>

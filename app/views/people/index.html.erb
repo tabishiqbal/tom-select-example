@@ -1,0 +1,19 @@
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <p style="color: green"><%= notice %></p>
+
+  <div class="w-full flex justify-between">
+    <h1 class="font-bold text-3xl">People</h1>
+    <%= link_to "New person", new_person_path, class: "rounded-md inline-flex items-center text-xs text-white px-4 py-1.5 shadow-sm bg-gray-900 hover:bg-gray-700" %>
+  </div>
+
+  <ul id="people" class="space-y-4 mt-10">
+    <% @people.each do |person| %>
+      <li>
+        <%= render person %>
+        <p class="text-sm text-blue-600">
+          <%= link_to "Show this person", person %>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+</div>

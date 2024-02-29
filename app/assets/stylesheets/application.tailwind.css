@@ -1,0 +1,10 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+/* Import custom css files from 'components/filename.css */
+@import "./components/tom_select";
+@import "./components/select";
+
+
+/* Utilities */
+@import "tailwindcss/utilities";
