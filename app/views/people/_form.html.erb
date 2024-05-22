@@ -24,8 +24,8 @@
     </div>
 
     <div>
-      <%= form.label :company_id, class: "block text-sm font-medium leading-6 text-gray-900" %>
-      <%= form.collection_select :company_id, Company.all, :id, :name, {}, {multiple: true, class: "mt-1", data: {controller: "select"}} %>
+      <%= form.label :region, class: "block text-sm font-medium leading-6 text-gray-900" %>
+      <%= form.collection_select :region, Person.regions.map{ |key, value| [value, key]}, :last, :first, {}, {multiple: true, class: "mt-1", data: {controller: "select"}} %>
     </div>
   </div>
 
